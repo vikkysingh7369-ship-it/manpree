@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manpreet Kaur - Landing Page</title>
+
+    <!-- META PIXEL CODE -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1036935659392968');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1036935659392968&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- END META PIXEL CODE -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Reset & Variables --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-orange: #ea5b0c;
+            --bg-dark-green: #1e7b3e;
+            --bg-light-green: #239b4c;
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-orange);
+            font-family: var(--font-main);
+            display: flex;
+            justify-content: center;
+            padding: 20px 12px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* --- 1. Header Section --- */
+        .header-card { display: flex; align-items: center; gap: 14px; padding: 16px 20px; }
+
+        .header-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background-color: #f0f0f0; display: flex;
+            align-items: center; justify-content: center;
+            overflow: hidden; border: 2px solid #e0e0e0; flex-shrink: 0;
+        }
+        .header-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .header-text h3 {
+            font-size: 11px; font-weight: 600; color: var(--text-gray);
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;
+        }
+        .header-text h1 { font-size: 20px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+
+        /* --- 2. Stats Section --- */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .stat-box {
+            background: var(--card-bg); border-radius: var(--border-radius);
+            padding: 20px 12px; text-align: center; box-shadow: var(--shadow);
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .stat-box p {
+            font-size: 10px; color: var(--text-gray); text-transform: uppercase;
+            font-weight: 600; margin-bottom: 6px; letter-spacing: 0.3px;
+        }
+        .stat-box h2 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+        .stat-box h2.green-text { color: var(--bg-dark-green); }
+        .stat-box h2.dark-text { color: var(--text-dark); }
+
+        /* --- 3. Buttons (Shining Effect) --- */
+        .btn-green {
+            position: relative; overflow: hidden;
+            background-color: var(--bg-dark-green); color: white;
+            border: none; border-radius: 50px; padding: 16px 20px;
+            width: 100%; font-family: var(--font-main); font-size: 16px;
+            font-weight: 600; display: flex; align-items: center;
+            justify-content: center; gap: 10px; cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 4px 12px rgba(30, 123, 62, 0.3);
+            text-decoration: none;
+        }
+        .btn-green:hover { background-color: var(--bg-light-green); }
+
+        .btn-green::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: all 0.6s; animation: shine 3s infinite;
+        }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+
+        .btn-green svg { width: 20px; height: 20px; fill: white; position: relative; z-index: 1; }
+        .btn-green span { position: relative; z-index: 1; }
+
+        /* --- 4. Image Placeholders --- */
+        .image-placeholder {
+            width: 100%; border-radius: var(--border-radius);
+            overflow: hidden; background: #f0f0f0;
+            display: flex; align-items: center; justify-content: center;
+            color: #999; font-weight: 600; font-size: 14px; aspect-ratio: 1 / 1;
+        }
+        .image-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* --- 5. Section Titles --- */
+        .section-title {
+            text-align: center; color: var(--text-dark);
+            font-family: var(--font-main); font-size: 16px;
+            font-weight: 700; margin: 20px 0 8px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .section-subtitle {
+            text-align: center; color: var(--text-gray);
+            font-size: 13px; margin-bottom: 20px; line-height: 1.5;
+        }
+
+        /* --- 6. Reviews & Ratings Section --- */
+        .rating-summary {
+            display: flex; flex-direction: column; align-items: center;
+            padding-bottom: 20px; border-bottom: 1px solid #eee;
+        }
+        .rating-big {
+            font-size: 42px; font-weight: 700; color: var(--bg-dark-green);
+            line-height: 1; font-family: var(--font-main);
+        }
+        .stars { color: #f5b041; font-size: 18px; margin: 6px 0; letter-spacing: 2px; }
+        .review-count { font-size: 12px; color: var(--text-gray); }
+
+        .rating-bars { width: 100%; margin: 20px 0; }
+        .bar-row {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 12px; color: var(--text-gray);
+            margin-bottom: 6px; font-weight: 500;
+        }
+        .bar-row span:first-child { width: 20px; text-align: right; }
+        .bar-bg { flex: 1; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
+        .bar-fill { height: 100%; background: #f5b041; border-radius: 3px; }
+        .bar-row span:last-child { width: 35px; text-align: right; }
+
+        .rating-stats {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            width: 100%; text-align: center; margin-top: 16px;
+        }
+        .rating-stats div h4 { color: var(--bg-dark-green); font-size: 18px; font-weight: 700; }
+        .rating-stats div p { font-size: 11px; color: var(--text-gray); font-weight: 500; }
+
+        /* --- 7. Individual Reviews --- */
+        .review-box {
+            display: flex; gap: 14px; padding: 20px;
+            background: var(--card-bg); border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .review-avatar {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: #e0e0e0; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; color: #555;
+            flex-shrink: 0; font-size: 16px;
+        }
+        .review-content h4 { font-size: 15px; color: var(--text-dark); font-weight: 600; margin-bottom: 2px; }
+        .review-content .meta { font-size: 11px; color: #999; margin-bottom: 8px; }
+        .review-content p { font-size: 13px; color: var(--text-dark); line-height: 1.5; font-weight: 400; }
+
+        /* --- 8. Helpful Button --- */
+        .helpful-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 12px; padding: 6px 14px;
+            background-color: #f0f0f0; border: 1px solid #e0e0e0;
+            border-radius: 20px; cursor: pointer;
+            font-size: 11px; font-weight: 600; color: var(--text-gray);
+            font-family: var(--font-main); transition: all 0.2s ease; user-select: none;
+        }
+        .helpful-btn:hover { background-color: #e8e8e8; }
+        .helpful-btn svg { width: 14px; height: 14px; fill: currentColor; transition: all 0.2s ease; }
+        .helpful-btn.liked { background-color: #e8f5e9; border-color: #a5d6a7; color: var(--bg-dark-green); }
+        .helpful-btn.liked svg { fill: var(--bg-dark-green); }
+
+        /* --- 9. Trust Section --- */
+        .trust-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; }
+        .trust-item:not(:last-child) { border-bottom: 1px solid #f0f0f0; }
+        .trust-icon {
+            width: 32px; height: 32px; display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .trust-text h4 { font-size: 14px; color: var(--text-dark); font-weight: 600; margin-bottom: 2px; }
+        .trust-text p { font-size: 12px; color: var(--text-gray); font-weight: 400; }
+
+        /* --- 10. Footer --- */
+        .footer {
+            text-align: center; font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px; padding-bottom: 20px;
+            font-weight: 400; line-height: 1.6;
+        }
+        .footer a { color: #ffffff; text-decoration: underline; font-weight: 600; }
+
+        /* --- Responsive Design (PC) --- */
+        @media (min-width: 768px) {
+            body { padding: 40px 20px; align-items: flex-start; }
+            .container { max-width: 600px; }
+            .stat-box h2 { font-size: 20px; }
+            .section-title { font-size: 18px; }
+            .btn-green { padding: 18px 24px; font-size: 17px; }
+            .image-placeholder { aspect-ratio: 4 / 3; }
+        }
+    </style>
+<link rel="me" href="https://www.blogger.com/profile/11455521734864455848" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- BOX 1: HEADER PROFILE -->
+    <div class="card header-card">
+        <div class="header-avatar">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBjMwwGvc4yemtM9n0D_eKX_dD01coNqmGv1fBZYdjbDxd3OUFnIbhAd1UVZUQCID5NHq0VsnbeowVoAxvHoF_oGmSAdXQbImmgPBmRvYJPfbxZLOPNLhyphenhyphenm0SHvk2U_AFGUnqz9OMXTExkj3b9E5nZ8WYVogIt45IHS2ospgkyXxVgXHjGUb4zLn6Wcpc/s640/1000238491.jpg" alt="Profile">
+        </div>
+        <div class="header-text">
+            <h3>PRIVATE LIMITED COMPANY</h3>
+            <h1>Manpreet Kaur</h1>
+        </div>
+    </div>
+
+    <!-- BOX 2 & 3: STATS -->
+    <div class="stats-grid">
+        <div class="stat-box">
+            <p>PAID TO CLIENTS THIS MONTH</p>
+            <h2 class="green-text" id="counter">0 INR</h2>
+        </div>
+        <div class="stat-box">
+            <p>LIMITED SPOTS LEFT TODAY</p>
+            <h2 class="dark-text">92</h2>
+        </div>
+    </div>
+
+    <!-- BOX 4: TELEGRAM BUTTON TOP (TRACKED) -->
+    <a href="https://t.me/+Qs119-oot4IwZWU1" target="_blank" class="btn-green" onclick="trackTelegramClick('Top Button')">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        <span>Join Free Telegram Channel</span>
+    </a>
+
+    <!-- BOX 5: HERO IMAGE -->
+    <div class="image-placeholder">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBjMwwGvc4yemtM9n0D_eKX_dD01coNqmGv1fBZYdjbDxd3OUFnIbhAd1UVZUQCID5NHq0VsnbeowVoAxvHoF_oGmSAdXQbImmgPBmRvYJPfbxZLOPNLhyphenhyphenm0SHvk2U_AFGUnqz9OMXTExkj3b9E5nZ8WYVogIt45IHS2ospgkyXxVgXHjGUb4zLn6Wcpc/s640/1000238491.jpg" alt="Manpreet Kaur">
+    </div>
+
+    <!-- BOX 6: HOW TO GET STARTED -->
+    <div class="card">
+        <h2 class="section-title">HOW TO GET STARTED?</h2>
+        <p class="section-subtitle">Follow the steps below to understand our project and start earning today.</p>
+
+        <div class="image-placeholder" style="margin-bottom: 20px; aspect-ratio: 16/9;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW8az4nfxyHO9wMu2WJSQmh89c6mcpVrG_qHZAbm6NhMJdaairgVkglfbsFD1oB0lh7kX1p1HCz4YoafOHwnM6UACLDq71V-yN8WVhwIWdB9Ct2S9vPaT0R9z5gka2YTZg8NUuPsZ3qX5JyqJMGv054ekg-CPM6EzXYqkr53Q7f3AVbM2ywEr5mZWqYcA/s1280/1000238490.jpg" alt="How to get started">
+        </div>
+
+        <a href="https://t.me/+Qs119-oot4IwZWU1" target="_blank" class="btn-green" onclick="trackTelegramClick('How To Get Started Button')">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            <span>Join Free Telegram Channel</span>
+        </a>
+    </div>
+
+    <!-- BOX 7: TESTIMONIALS -->
+    <h2 class="section-title" style="color: #1a1a1a; margin-top: 10px;">What Our Members Say</h2>
+
+    <div class="review-box" style="padding: 16px 20px;">
+        <div class="review-avatar" style="background: #e8d5b7; color: #6d4c41;">A</div>
+        <div class="review-content">
+            <p>"New car just few days. Thank you Manpreet ji!"</p>
+            <div class="meta" style="margin-top: 4px;">Anjali Mehra — Hyderabad</div>
+        </div>
+    </div>
+    <div class="review-box" style="padding: 16px 20px;">
+        <div class="review-avatar" style="background: #e8d5b7; color: #6d4c41;">R</div>
+        <div class="review-content">
+            <p>"From 0 to ₹1.68 lakh in first month. Best decision ever!"</p>
+            <div class="meta" style="margin-top: 4px;">Rahul Sharma — Mumbai</div>
+        </div>
+    </div>
+    <div class="review-box" style="padding: 16px 20px;">
+        <div class="review-avatar" style="background: #e8d5b7; color: #6d4c41;">P</div>
+        <div class="review-content">
+            <p>"Housewife, no experience. Made ₹94,500 in 14 hours ❤️"</p>
+            <div class="meta" style="margin-top: 4px;">Priyanka Nair — Bangalore</div>
+        </div>
+    </div>
+
+    <!-- BOX 8: MEMBER RATINGS -->
+    <div class="card">
+        <h2 class="section-title">MEMBER REVIEWS & RATINGS</h2>
+        <p class="section-subtitle">Real feedback from our earning community</p>
+
+        <div class="rating-summary">
+            <div class="rating-big">4.8</div>
+            <div class="stars">★★★★★</div>
+            <div class="review-count">12,847 reviews</div>
+        </div>
+
+        <div class="rating-bars">
+            <div class="bar-row">
+                <span>5 ★</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 82%;"></div></div>
+                <span>82%</span>
+            </div>
+            <div class="bar-row">
+                <span>4 ★</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 12%;"></div></div>
+                <span>12%</span>
+            </div>
+            <div class="bar-row">
+                <span>3 ★</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 4%;"></div></div>
+                <span>4%</span>
+            </div>
+            <div class="bar-row">
+                <span>2 ★</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 1%;"></div></div>
+                <span>1%</span>
+            </div>
+            <div class="bar-row">
+                <span>1 ★</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 1%;"></div></div>
+                <span>1%</span>
+            </div>
+        </div>
+
+        <div class="rating-stats">
+            <div><h4>98%</h4><p>Satisfaction</p></div>
+            <div><h4>12.8K+</h4><p>Reviews</p></div>
+            <div><h4>4.8/5</h4><p>Avg Rating</p></div>
+        </div>
+    </div>
+
+    <!-- DETAILED REVIEWS -->
+    <div class="review-box">
+        <div class="review-avatar" style="background: #2e7d32; color: white;">D</div>
+        <div class="review-content">
+            <h4>Deepak Kumar</h4>
+            <div class="meta">Chennai · 2 din pehle</div>
+            <p>Maine sirf 3 din mein ₹47,000 kamaye! Bahut aasan process hai. Thank you Manpreet ma'am!</p>
+            <button class="helpful-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91z"/></svg>
+                <span class="helpful-text">534 found helpful</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="review-avatar" style="background: #2e7d32; color: white;">S</div>
+        <div class="review-content">
+            <h4>Sunita Verma</h4>
+            <div class="meta">Hyderabad · 5 din pehle</div>
+            <p>Housewife hoon, koi experience nahi tha. Pehle mahine mein hi ₹68,500 mila. Best platform! ❤️</p>
+            <button class="helpful-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91z"/></svg>
+                <span class="helpful-text">489 found helpful</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="review-avatar" style="background: #2e7d32; color: white;">A</div>
+        <div class="review-content">
+            <h4>Amit Patel</h4>
+            <div class="meta">Bangalore · 1 hafta pehle</div>
+            <p>Pehle vishwas nahi hua, lekin ab har mahine ₹1,20,000+ aa raha hai. Life change ho gaya!</p>
+            <button class="helpful-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91z"/></svg>
+                <span class="helpful-text">612 found helpful</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="review-avatar" style="background: #2e7d32; color: white;">K</div>
+        <div class="review-content">
+            <h4>Kavita Singh</h4>
+            <div class="meta">Kochi · 1 hafta pehle</div>
+            <p>Bohot accha hai, support team bhi bahut helpful hai. Daily earning aa rahi hai consistently.</p>
+            <button class="helpful-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91z"/></svg>
+                <span class="helpful-text">445 found helpful</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="review-box">
+        <div class="review-avatar" style="background: #2e7d32; color: white;">R</div>
+        <div class="review-content">
+            <h4>Rajesh Gupta</h4>
+            <div class="meta">Thiruvananthapuram · 2 hafte pehle</div>
+            <p>Meri wife ne bhi join kiya, ab dono milkar ₹2,50,000+ kama rahe hain monthly! 🔥</p>
+            <button class="helpful-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91z"/></svg>
+                <span class="helpful-text">578 found helpful</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOX 14: TRUST PROGRAM -->
+    <h2 class="section-title" style="color: #1a1a1a; margin-top: 10px;">Why Members Trust This Program</h2>
+    <div class="card" style="padding: 8px 20px;">
+        <div class="trust-item">
+            <div class="trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ea5b0c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="trust-text">
+                <h4>Simple Step-by-Step</h4>
+                <p>Even beginners earn from first day</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ea5b0c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="trust-text">
+                <h4>Smart Wealth Program</h4>
+                <p>We handle everything for you</p>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">
+                <svg viewBox="0 0 24 24" fill="#ea5b0c" stroke="#ea5b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="trust-text">
+                <h4>Full Community Support</h4>
+                <p>Friendly team with you at every step</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOX 15: BOTTOM BUTTON (TRACKED) -->
+    <a href="https://t.me/+Qs119-oot4IwZWU1" target="_blank" class="btn-green" style="margin-top: 8px;" onclick="trackTelegramClick('Bottom Button')">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        <span>Join Free Telegram Channel</span>
+    </a>
+
+    <!-- BOX 16: FOOTER -->
+    <div class="footer">
+        © 2026 Manpreet Kaur. All rights reserved.<br>
+    </div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+    // ==========================================
+    // META PIXEL - TELEGRAM BUTTON TRACKING
+    // ==========================================
+    function trackTelegramClick(buttonLocation) {
+        // Standard Lead event (best for conversions)
+        fbq('track', 'Lead', {
+            content_name: 'Telegram Join',
+            content_category: 'Telegram Channel',
+            button_location: buttonLocation
+        });
+
+        // Custom event for detailed tracking
+        fbq('trackCustom', 'TelegramButtonClick', {
+            button_location: buttonLocation,
+            timestamp: new Date().toISOString()
+        });
+
+        console.log('✅ Meta Pixel tracked:', buttonLocation);
+    }
+
+    // ==========================================
+    // SCROLL DEPTH TRACKING (Bonus - for retargeting)
+    // ==========================================
+    let scroll50Tracked = false;
+    let scroll90Tracked = false;
+
+    window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+
+        if (scrollPercent >= 50 && !scroll50Tracked) {
+            fbq('trackCustom', 'ScrollDepth50');
+            scroll50Tracked = true;
+            console.log('✅ Scroll 50% tracked');
+        }
+
+        if (scrollPercent >= 90 && !scroll90Tracked) {
+            fbq('trackCustom', 'ScrollDepth90');
+            scroll90Tracked = true;
+            console.log('✅ Scroll 90% tracked');
+        }
+    });
+
+    // ==========================================
+    // COUNTING EFFECT
+    // ==========================================
+    document.addEventListener("DOMContentLoaded", function() {
+        const counterElement = document.getElementById("counter");
+        const target = 16737826;
+        const duration = 2000;
+        let startTime = null;
+
+        function animateCounter(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const currentNumber = Math.floor(progress * target);
+            counterElement.textContent = currentNumber.toLocaleString('en-IN') + ' INR';
+
+            if (progress < 1) {
+                window.requestAnimationFrame(animateCounter);
+            } else {
+                counterElement.textContent = '1,67,37,826 INR';
+            }
+        }
+        window.requestAnimationFrame(animateCounter);
+    });
+
+    // ==========================================
+    // LIKE BUTTON FUNCTIONALITY
+    // ==========================================
+    function toggleLike(button) {
+        const textSpan = button.querySelector('.helpful-text');
+        if (button.classList.contains('liked')) {
+            button.classList.remove('liked');
+            let match = textSpan.textContent.match(/^(\d+)/);
+            if (match) {
+                textSpan.textContent = (parseInt(match[1]) - 1) + ' found helpful';
+            }
+        } else {
+            button.classList.add('liked');
+            let match = textSpan.textContent.match(/^(\d+)/);
+            if (match) {
+                textSpan.textContent = (parseInt(match[1]) + 1) + ' found helpful';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
